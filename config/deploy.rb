@@ -1,4 +1,4 @@
-server '34.244.174.149', port: 22, roles: [:web, :app, :db], primary: true
+server '52.49.128.55', port: 22, roles: [:web, :app, :db], primary: true
 
 set :application, "www"
 
