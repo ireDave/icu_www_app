@@ -36,21 +36,33 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.7)
+    airbrussh (1.3.1)
+      sshkit (>= 1.6.1, != 1.7.0)
     archive-zip (0.7.0)
       io-like (~> 0.3.0)
     arel (6.0.4)
     builder (3.2.3)
     cancan (1.6.10)
-    capistrano (3.4.1)
+    capistrano (3.11.0)
+      airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
-      sshkit (~> 1.3)
+      sshkit (>= 1.9.0)
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-nvm (0.0.7)
+      capistrano (~> 3.1)
     capistrano-rails (1.1.2)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+    capistrano3-puma (3.1.1)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (~> 3.4)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -68,6 +80,7 @@ GEM
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
     colored (1.2)
+    concurrent-ruby (1.1.5)
     database_cleaner (1.4.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
@@ -96,7 +109,8 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
-    i18n (0.8.6)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     icu_name (1.2.5)
     icu_utils (1.3.2)
     io-like (0.3.0)
@@ -120,9 +134,9 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     mysql2 (0.3.18)
-    net-scp (1.2.1)
-      net-ssh (>= 2.6.5)
-    net-ssh (4.2.0)
+    net-scp (2.0.0)
+      net-ssh (>= 2.6.5, < 6.0.0)
+    net-ssh (5.2.0)
     netrc (0.10.3)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -131,6 +145,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    puma (3.12.1)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.5)
@@ -209,7 +224,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    sshkit (1.14.0)
+    sshkit (1.18.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     stripe (1.20.1)
@@ -239,8 +254,12 @@ PLATFORMS
 
 DEPENDENCIES
   cancan (~> 1.6)
-  capistrano (= 3.4.1)
-  capistrano-rails (~> 1.1)
+  capistrano
+  capistrano-bundler
+  capistrano-nvm
+  capistrano-rails
+  capistrano-rvm
+  capistrano3-puma
   capybara
   chromedriver-helper
   colored
@@ -255,6 +274,7 @@ DEPENDENCIES
   mailgun-ruby
   mysql2
   paperclip (~> 4.1)
+  puma
   quiet_assets
   rails (= 4.2.8)
   rake (= 10.4.2)
@@ -271,4 +291,4 @@ DEPENDENCIES
   wirble
 
 BUNDLED WITH
-   1.14.6
+   1.17.3
