@@ -26,7 +26,7 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 set :rvm_type, :user  
-set :rvm_ruby_version, "2.2.1"
+set :rvm_ruby_version, "2.2.6"
 set :nvm_node, 'v12.4.0'
 
 namespace :puma do
