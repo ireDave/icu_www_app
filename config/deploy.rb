@@ -1,6 +1,6 @@
 server '34.244.174.149', port: 22, roles: [:web, :app, :db], primary: true
 
-set :application, "wwww"
+set :application, "www"
 
 set :repo_url, "git@github.com:ireDave/icu_www_app.git"
 set :branch, "rvm_nginx_puma_rds"
